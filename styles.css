@@ -36,6 +36,7 @@ body {
     width: 25%;
     height: 20%;
     font-size: 20px;
+    filter: brightness(100%);
 }
 
 .dark-button {

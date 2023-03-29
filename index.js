@@ -2,6 +2,12 @@ const display = document.querySelector(".display-div");
 const buttons = document.querySelectorAll('.button');
 buttons.forEach((button) => {
     button.addEventListener('click', buttonPressed);
+    button.addEventListener('mousedown', () => {
+        button.setAttribute('style', 'filter: brightness(120%)')
+    });
+    button.addEventListener('mouseup', () => {
+        button.setAttribute('style', 'filter: brightness(100%)')
+    });
 });
 
 let displayVal = '0'
@@ -168,4 +174,3 @@ function decimal() {
     }
     return;
 }
-
