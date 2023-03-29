@@ -1,0 +1,60 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.calculator-div {
+    background-color: rgb(47, 42, 40);
+    width: 300px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.display-div {
+    height: 25%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    color: white;
+    font-size: 50px;
+    font-weight: 100;
+    padding-right: 5px;
+}
+
+.buttons-div {
+    height: 75%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+
+.button {
+    color: white;
+    border: solid 0.75px rgb(47, 42, 40);
+    width: 25%;
+    height: 20%;
+    font-size: 20px;
+}
+
+.dark-button {
+    background-color: rgb(68, 63, 61);
+}
+
+.orange-button {
+    background-color: rgb(243, 162, 60);
+}
+
+.num-button {
+    background-color: rgb(98, 94, 93);
+}
+
+#n0 {
+    width: 50%;
+    border-bottom-left-radius: 10px;
+}
+
+#equal {
+    border-bottom-right-radius: 10px;
+}
