@@ -10,6 +10,10 @@ let valY = ''
 let operator = ''
 function buttonPressed(e) {
     // IF NUMBER PRESSED
+    if (displayVal == 'bruh') {
+        clearDisplay();
+    }
+
     if (parseInt(e.target.id.slice(1)) || e.target.id == 'n0') {
         let value = e.target.id.slice(1);
         // IF NO OPERATOR
