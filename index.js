@@ -10,10 +10,10 @@ let valY = ''
 let operator = ''
 function buttonPressed(e) {
     // IF NUMBER PRESSED
-    if (parseInt(e.target.id.slice(1))) {
+    if (parseInt(e.target.id.slice(1)) || e.target.id == 'n0') {
         let value = e.target.id.slice(1);
         // IF NO OPERATOR
-        if (operator == '') {
+        if (operator == '' && valX.length < 9) {
             if (valX == '0') {
                 valX = value;
                 displayVal = valX;
@@ -23,7 +23,7 @@ function buttonPressed(e) {
             }
         }
         // IF OPERATOR 
-        else {
+        else if (operator != '' && valY.length < 9) {
             if (valY == '') {
                 valY = value;
                 displayVal = valY;
@@ -48,9 +48,7 @@ function buttonPressed(e) {
 
             // EQUAL
             case 'equal':
-                valX = operate(parseFloat(valX), parseFloat(valY), operator);
-                displayVal = valX;
-                valY = '';
+                equal();
                 break;         
 
             // OPERATORS
@@ -100,6 +98,23 @@ function percent() {
     return;
 }
 
+function equal() {
+    if (valY != '') {
+        valX = operate(parseFloat(valX), parseFloat(valY), operator).toString();
+        console.log('FINAL: ' + valX)
+
+        if (valX.length < 9) {
+            displayVal = valX;
+            valY = '';
+        } else {
+            clearDisplay();
+        }
+    } else {
+        displayVal = valX;
+    }
+    return;
+}
+
 function operate(x, y, op) {
     let result = 0;
     switch (op) {
@@ -117,6 +132,14 @@ function operate(x, y, op) {
             break;
     }
     console.log(result);
+    let [before, after] = result.toString().split('.')
+    while (result % 1 != 0 && result.toString().length >= 9) {
+        result = Number((result).toFixed(after.length - 1));
+        [before, after] = result.toString().split('.');
+        console.log(result);
+
+    }
+
     return result;
 }
 
