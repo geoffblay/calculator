@@ -60,6 +60,11 @@ function buttonPressed(e) {
             case 'add':
                 operator = e.target.id;
                 console.log(operator);
+                break;
+            
+            // DECIMAL
+            case '.':
+                decimal();
         }
     }
     display.textContent = displayVal;
@@ -96,9 +101,6 @@ function percent() {
 }
 
 function operate(x, y, op) {
-    console.log(x)
-    console.log(y)
-    console.log(op)
     let result = 0;
     switch (op) {
         case 'add':
@@ -118,5 +120,18 @@ function operate(x, y, op) {
     return result;
 }
 
-
+function decimal() {
+    console.log('valX: ' + valX)
+    console.log('valY: ' + valY)
+    if (valY == '' && !(valX.includes('.'))) {
+        valX += '.';
+        displayVal = valX;
+    } else if (valY != '' && !(valY.includes('.'))) {
+        valY += '.';
+        displayVal = valY;
+    } else {
+        console.log('decimal already present');
+    }
+    return;
+}
 
