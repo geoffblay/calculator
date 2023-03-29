@@ -78,10 +78,12 @@ function clearDisplay() {
 
 function negative() {
     if (valY == '') {
-        valX *= -1;
+        // valX *= -1;
+        valX = operate(valX, -1, 'mult')
         displayVal = valX;
     } else {
-        valY *= -1;
+        // valY *= -1;
+        valX = operate(valY, -1, 'mult')
         displayVal = valY;
     }
     return;
@@ -89,10 +91,12 @@ function negative() {
 
 function percent() {
     if (valY == '') {
-        valX /= 100;
+        // valX /= 100;
+        valX = operate(valX, 100, 'divide');
         displayVal = valX;
     } else {
-        valY /= 100;
+        // valY /= 100;
+        valY = operate(valY, 100, 'divide');
         displayVal = valY;
     }
     return;
@@ -100,7 +104,7 @@ function percent() {
 
 function equal() {
     if (valY != '') {
-        valX = operate(parseFloat(valX), parseFloat(valY), operator).toString();
+        valX = operate(parseFloat(valX), parseFloat(valY), operator);
         console.log('FINAL: ' + valX)
 
         if (valX.length < 9) {
@@ -128,6 +132,9 @@ function operate(x, y, op) {
             result = x * y;
             break;
         case 'divide':
+            if (y == 0) {
+                return 'bruh';
+            }
             result = x / y;
             break;
     }
@@ -140,7 +147,7 @@ function operate(x, y, op) {
 
     }
 
-    return result;
+    return result.toString();
 }
 
 function decimal() {
